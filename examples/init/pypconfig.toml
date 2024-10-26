@@ -1,0 +1,34 @@
+[python]
+version = "3.9.13"
+pip = "22.1.1"
+
+[project]
+name = "my_project"
+version = "0.1.0"
+description = ""
+license = "ISC"
+dependencies = [
+  "blinker==1.8.2",
+  "click==8.1.7",
+  "Flask==3.0.3",
+  "importlib_metadata==8.5.0",
+  "itsdangerous==2.2.0",
+  "Jinja2==3.1.4",
+  "MarkupSafe==3.0.2",
+  "numpy==2.0.2",
+  "pandas==2.2.3",
+  "pip==22.1.1",
+  "python-dateutil==2.9.0.post0",
+  "pytz==2024.2",
+  "setuptools==62.3.2",
+  "six==1.16.0",
+  "tzdata==2024.2",
+  "Werkzeug==3.0.6",
+  "zipp==3.20.2",
+]
+
+[scripts]
+test = "echo \"Error: no test specified\" && exit 1"
+
+[pyp]
+version = "0.1.0"

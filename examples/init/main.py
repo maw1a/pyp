@@ -1,0 +1,1 @@
+print("This project is managed by pyp CLI!")
