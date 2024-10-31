@@ -1,7 +1,6 @@
 package pip
 
 import (
-	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -12,7 +11,6 @@ import (
 type EnvBackup struct {
 	OldPath        string
 	OldPythonHome  string
-	OldPS1         string
 	VirtualEnvPath string
 }
 
@@ -64,7 +62,6 @@ func activate(envDir string) error {
 	backup = EnvBackup{
 		OldPath:        os.Getenv("PATH"),
 		OldPythonHome:  os.Getenv("PYTHONHOME"),
-		OldPS1:         os.Getenv("PS1"),
 		VirtualEnvPath: envPath,
 	}
 
@@ -88,27 +85,4 @@ func activate(envDir string) error {
 	}
 
 	return nil
-}
-
-func GetFirstValidPythonPath() (string, error) {
-	cmd := exec.Command("which", "-a", "python", "python3")
-	output, err := cmd.Output()
-	if err != nil {
-		return "", fmt.Errorf("failed to execute 'which' command: %v", err)
-	}
-
-	paths := strings.Split(strings.TrimSpace(string(output)), "\n")
-	for _, path := range paths {
-		if isValidPythonPath(path) {
-			return path, nil
-		}
-	}
-
-	return "", fmt.Errorf("no valid Python path found")
-}
-
-func isValidPythonPath(path string) bool {
-	cmd := exec.Command(path, "--version")
-	err := cmd.Run()
-	return err == nil
 }

@@ -51,6 +51,7 @@ type (
 	}
 )
 
+// ! CONSTANTS
 const (
 	PYP_VERSION    = "0.1.0"
 	VENV_DIR       = ".env"

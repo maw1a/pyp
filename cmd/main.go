@@ -14,10 +14,11 @@ func Execute() {
 	var rootCmd = &cobra.Command{
 		Use:   "pyp",
 		Short: "A CLI tool to manage Python projects",
-		Long:  `A Command Line Interface built to manage Python projects the right way.`,
+		Long:  `A Command Line Interface built to manage Python projects the simple way.`,
 	}
 
 	// Global flags
+	// ! THE DEFAULT PYTHON PATH USED BY pyp. Defaults to "python3"
 	rootCmd.PersistentFlags().StringVar(&pythonPath, "python", "python3", "Python executable path")
 
 	// Version command
